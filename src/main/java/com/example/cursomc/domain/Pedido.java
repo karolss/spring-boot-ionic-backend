@@ -2,10 +2,7 @@ package com.example.cursomc.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 public class Pedido implements Serializable {
@@ -26,7 +23,9 @@ public class Pedido implements Serializable {
     @ManyToOne
     @JoinColumn(name="endereco_de_entrega_id")
     private Endereco enderecoDeEntrega;
-    //private List<Produto> itens = new ArrayList<>();
+
+    @OneToMany(mappedBy = "id.pedido")
+    private Set<ItemPedido> itens = new HashSet<>();
 
     public Pedido(){
     }
@@ -78,13 +77,13 @@ public class Pedido implements Serializable {
         this.enderecoDeEntrega = enderecoDeEntrega;
     }
 
-   // public List<Produto> getItens() {
-    //    return itens;
-   // }
+    public Set<ItemPedido> getItens() {
+        return itens;
+    }
 
-   // public void setItens(List<Produto> itens) {
-    //    this.itens = itens;
-    //}
+     public void setItens(Set<ItemPedido> itens) {
+         this.itens = itens;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -98,4 +97,6 @@ public class Pedido implements Serializable {
     public int hashCode() {
         return Objects.hash(getId());
     }
+
+
 }
