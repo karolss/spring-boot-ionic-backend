@@ -1,7 +1,6 @@
 package com.example.cursomc.domain;
 
 import com.example.cursomc.domain.enums.EstadoPagamento;
-
 import javax.persistence.Entity;
 
 @Entity

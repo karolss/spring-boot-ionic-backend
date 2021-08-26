@@ -5,7 +5,6 @@ import com.example.cursomc.repositories.ClienteRepository;
 import com.example.cursomc.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
